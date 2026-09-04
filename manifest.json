@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "tonysm.sail-proxy",
+  "name": "Sail Proxy",
+  "version": "1.0.0",
+  "author": "Tony Messias",
+  "license": "MIT",
+  "description": "Local Sail apps served on real hostnames — registered domains and their directories.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Sail Proxy",
+    "description": "Every domain registered with sail-proxy and where it lives on disk.",
+    "category": "Development",
+    "aliases": [
+      "sail",
+      "sail-proxy",
+      "laravel",
+      "proxy"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "binaryPath": "",
+      "refreshIntervalSec": 30,
+      "openRefreshIntervalSec": 5,
+      "folderAction": "files"
+    },
+    "schema": [
+      {
+        "key": "binaryPath",
+        "type": "string",
+        "label": "Custom sail-proxy path",
+        "defaultValue": "",
+        "description": "Use this binary instead of the one on PATH. For developing sail-proxy itself."
+      },
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 5,
+        "max": 3600,
+        "step": 5,
+        "defaultValue": 30
+      },
+      {
+        "key": "openRefreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh while open (seconds)",
+        "min": 2,
+        "max": 60,
+        "step": 1,
+        "defaultValue": 5
+      },
+      {
+        "key": "folderAction",
+        "type": "enum",
+        "label": "Folder button opens",
+        "options": [
+          "files",
+          "editor",
+          "terminal"
+        ],
+        "defaultValue": "files"
+      }
+    ]
+  }
+}
